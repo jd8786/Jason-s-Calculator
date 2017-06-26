@@ -1,0 +1,81 @@
+﻿@{
+    ViewBag.Title = "MyCalculator";
+}
+<script src="~/Scripts/MyCalculator/calculator.js"></script>
+<style>
+    #d1 {
+        border: 1px solid black;
+        height: 340px;
+        width: 340px;
+    }
+
+    #txt {
+        height: 40px;
+        width: 312px;
+    }
+
+    .number, .operator, #dot, #eq {
+        height: 40px;
+        width: 75px;
+    }
+</style>
+<center style="margin-top:140px">
+    <div id="d1">
+        @using (@Html.BeginForm("Index", "MyCalculator", FormMethod.Post))
+            {
+            <table style="height:25%;border:thick">
+                <tr>
+                    <td colspan="4">
+                        <center>
+                            <h2>My Calculator</h2>
+                        </center>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4"><input type="text" id="txt" name="operationText" value="@ViewBag.operationResult" /></td>
+                </tr>
+                <tr>
+                    <td><input class="number" type="button" id="b7" value="7" /></td>
+                    <td><input class="number" type="button" id="b8" value="8" /></td>
+                    <td><input class="number" type="button" id="b9" value="9" /></td>
+                    <td><input class="operator" type="button" id="div" value="/" /></td>
+                </tr>
+                <tr>
+                    <td><input class="number" type="button" id="b4" value="4" /></td>
+                    <td><input class="number" type="button" id="b5" value="5" /></td>
+                    <td><input class="number" type="button" id="b6" value="6" /></td>
+                    <td><input class="operator" type="button" id="multy" value="*" /></td>
+                </tr>
+                <tr>
+                    <td><input class="number" type="button" id="b1" value="1" /></td>
+                    <td><input class="number" type="button" id="b2" value="2" /></td>
+                    <td><input class="number" type="button" id="b3" value="3" /></td>
+                    <td><input class="operator" type="button" id="sub" value="-" /></td>
+                </tr>
+                <tr>
+                    <td><input class="number" type="button" id="b0" value="0" /></td>
+                    <td><input type="button" id="dot" value="." /></td>
+                    <td><input class="operator" type="button" id="add" value="+" /></td>
+                    <td><input type="submit" id="eq" value="=" /></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="button" id="ce" value="CE" style="height:40px;width:155px" />
+                    </td>
+                    <td colspan="2">
+                        <input type="button" id="re" value="Clear" style="height:40px;width:155px" />
+                    </td>
+                </tr>
+            </table>
+        }
+    </div>
+</center>
+@if (ViewBag.errorFlag == 1)
+{
+    <script>
+        alert("Please enter the valid oprands and operators!")
+    </script>
+}
+
+
+
