@@ -48,7 +48,7 @@ namespace MyCalculatorTest
         {
             string operationText = "8+6-11*2/3";
             double result = DoOperation(operationText);
-            Assert.AreEqual(2, result);
+            Assert.AreEqual(6.66666666666667, result);
         }
 
         [TestMethod]
